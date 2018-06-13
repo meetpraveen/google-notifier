@@ -8,6 +8,7 @@ var app = express();
 app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 5000));
 
+
 // googlehome.device('Google-Home-88169b235ce2dc0dbf3969b9afcc16ee', language); // Change to your Google Home name
 // or if you know your Google Home IP
 googlehome.ip('172.20.10.9', language);
@@ -23,6 +24,8 @@ client.on('message', function (topic, message) {
 	googlehome.notify(message.toString(), function(res) {
 		console.log(res);
 	});
+	console.log("Hello world");
+	client.end();
 });
 
 app.get('/', function (req, res) {
